@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,left=25mm,right=25mm,top=31mm,bottom=31mm]{geometry}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage{ctex}
+\usepackage{booktabs}
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+    小米机器人部\\
+    2025年夏季学期《企业实习》课程\\
+    \vspace{120pt}
+    \huge \textbf{面向多关节混合驱动人形机器人的\\高精度Sim-to-Real验证体系}\\
+    \vspace{120pt}
+    \vspace{24pt}
+    
+    \begin{table}[H]
+        \centering
+        \resizebox{0.55\textwidth}{!}{%
+        \begin{tabular}{cc}
+        作\;\;\;\;\;\;\;\;\;\;\;\;\;\;者：& 陈子林 \\ \cline{2-2}
+        企业指导教师：& 苏炜 \\ \cline{2-2}
+        学校指导教师：& 吴丹 \\ \cline{2-2}
+        \end{tabular}%
+        }
+    \end{table}
+    \vspace{60pt}
+    \large 答辩日期：2025年8月2日
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\begin{center}
+\Large \textbf{多关节混合驱动人形机器人的高精度Sim-to-Real验证体系}\\
+\vspace{10pt}
+\small 陈子林 2022010066 机械20
+\normalsize
+\end{center}
+
+\section{研究背景}
+\subsection{问题分析}
+
+随着机器人技术的快速发展，特别是在服务机器人、工业机器人和人形机器人的广泛应用领域，实现高效率、高可靠性、高质量的系统测试与验证已成为推动机器人技术从实验室走向实际应用的关键挑战。
+
+传统测试方式存在三个主要问题：首先是测试成本高昂，实物测试需要大量硬件资源和专用场地；其次是测试周期过长，单次参数优化耗时长，联动测试耗时增加；最后是设备维护困难，物理设备故障率高且维护复杂。
+
+当前人形机器人结构正从传统6轴形式向具有更高冗余度和灵巧性的多自由度形式演进。本课题研究的5R2P机械臂采用五旋转两直线的混合驱动结构，虽然在结构灵活性和末端精度方面具有显著优势，但也带来四个技术挑战：控制空间冗余问题、异构执行器耦合效应、精确建模困难以及仿真精度受限。
+
+\subsection{解决方案}
+
+小米公司依托在自动驾驶领域积累的仿真与测试能力，提出了面向机器人产品的HIL全栈仿真台架解决方案。该方案融合了自动驾驶领域的成熟经验与机器人测试的特殊需求，构建高效测试体系，配套全自动化测试工具链，实现从仿真到实物的完整自动化闭环验证流程。
+
+\section{研究课题与目标}
+\subsection{课题名称}
+
+面向多关节混合驱动人形机器人的高精度Sim-to-Real验证体系研究
+
+\subsection{研究目标}
+
+基于小米自动驾驶经验，构建机器人测试验证能力体系，达成四个核心目标：
+
+\begin{table}[H]
+\centering
+\caption{研究目标量化指标}
+\begin{tabular}{p{7cm}c}
+\toprule
+\textbf{目标描述} & \textbf{量化指标} \\
+\midrule
+测试效率提升 & 50\%以上 \\
+验证周期缩短 & 30\%以上 \\
+测试成本降低 & 40\%以上 \\
+资源复用率提升 & 80\%以上 \\
+虚实一致性精度 & $\geqslant 95\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{研究方法}
+\subsection{HIL仿真系统}
+
+硬件在环（HIL）仿真技术通过将真实控制器与虚拟仿真环境紧密结合，在不依赖实物样机的情况下验证控制逻辑、性能和安全性。该技术已成为工业界验证复杂系统的标准方法。
+
+系统由四个核心组件构成：仿真主机负责运行动态数学模型和实时计算；被测硬件包含实际控制器或嵌入式系统；信号接口模块处理模拟/数字/总线信号的采集与输出；仿真模型则精确模拟电机动力学等实际系统行为。
+
+\subsection{技术路线}
+
+本次实习采用理论调研与工程实践相结合的研究方法，具体分为四个阶段：
+
+\begin{table}[H]
+\centering
+\caption{研究阶段规划}
+\begin{tabular}{p{2.5cm}p{9cm}}
+\toprule
+\textbf{时间} & \textbf{工作内容} \\
+\midrule
+第1-3周 & 调研HIL在机器人领域的应用现状和技术标准 \\
+第3-6周 & 实现基础通信接口，完成机械臂国标测试 \\
+第6-7周 & 开发自动化测试工具链，构建测试用例库 \\
+第7-9周 & 实机验证与精度优化，完成对比测试 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{研究成果}
+\subsection{仿真系统设计}
+
+仿真系统采用模块化设计架构，包含三个核心子系统：运动学仿真模块实现7自由度机械臂运动模拟；数据采集模块以$\geqslant 1kHz$采样率实时捕获信号；自动化测试模块支持脚本生成和批量执行。
+
+
+\subsection{关键技术实现}
+
+在运动学建模方面，基于DH参数构建了完整的机器人运动学模型，开发了7自由度逆运动学求解器，并通过实机校准将模型精度提升至92\%。在接口设计方面，制定了统一的硬件接口规范，支持CAN和EtherCAT多协议通信，信号采样率达到1kHz以上。
+
+\section{讨论与展望}
+\subsection{技术讨论}
+
+本次研究构建了面向多关节机器人的HIL验证平台，但在三个方面仍需改进：首先是模型精度方面，异构执行器耦合建模需要进一步优化；其次是实时性能，复杂场景下系统响应时间有待提升；最后是参数适配问题，材料去除率需与工艺参数建立更精确的关联模型。
+
+\subsection{应用价值}
+
+本研究成果将为小米机器人提供三方面核心价值：构建高效测试验证体系，缩短产品开发周期；提供算法快速迭代平台，加速技术创新；建立产品质量保障基础，降低市场风险。
+
+\end{document}
