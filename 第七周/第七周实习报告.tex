@@ -1,0 +1,39 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[a4paper,left=25mm,right=25mm,top=31mm,bottom=31mm]{geometry}
+\pagestyle{plain}
+\graphicspath{{./images}}
+
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{企业实习\;第七周实习报告}\\
+    \vspace{10pt}
+    \normalsize 小米自动驾驶与机器人部\;\;陈子林
+\end{center}
+
+\section{本周工作主要内容}
+
+本周为小米实习第四周 (8.04--8.08)，主要工作内容如下：
+
+\begin{enumerate}
+    \item 对规划的机械臂moveL路径进行滤波处理，得到平滑的关节曲线。针对原始路径存在的抖动和不连续问题，尝试了多种滤波算法，并对比了滤波前后的轨迹效果，确保机械臂运动更加平稳可靠。
+    \item 运动学逆解器带入宇树机器人h1\_2的urdf文件对算法进行验证，证明算法普适性和鲁棒性
+    \item 配置实验室电脑及本地环境，使自己能够远程ssh连接实验室电脑并读取h1\_2机器人的数据，或对其进行远程操控开发。期间解决了部分依赖库安装和网络权限问题，提升了开发效率。
+    \item 进行宇树h1\_2机器人上肢重复运动精度测试，记录技术文档，准备与m92u机器人进行对比测试。测试过程中详细记录了各项参数和实验现象，为后续数据分析和对比提供了基础。
+\end{enumerate}
+
+\section{后续工作计划}
+
+针对目前实习目标和工作进度，下一阶段计划如下：
+
+\begin{enumerate}
+    \item 连接m92u机器人进行物理实验，进行上肢重复运动精度测试，对比宇树h1\_2机器人。计划采用相同的测试流程和评价指标，确保对比结果的客观性和可复现性。
+    \item 完成两个机器人的GBT 12642--2013/ISO 9283:1998测试。将根据标准流程进行实验，收集相关数据，并对测试结果进行整理和分析。
+    \item 为宇树h1\_2搭建仿真系统，对比仿真结果与物理实验结果并优化。后续将根据对比结果调整仿真参数，提升仿真系统的准确性和实用性。
+\end{enumerate}
+
+\end{document}
